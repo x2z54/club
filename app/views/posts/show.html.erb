@@ -1,0 +1,43 @@
+<%= render "layouts/nav" %>
+
+<div class="container" >
+  <div class="row">
+      <div class="span10">
+    
+        <h2 style="margin: 10px 10px 0 12px;"><%= raw @post.title %></h2>
+        <hr>
+      <div class='span11'>
+        <div class='post-text'>
+          	<%= raw @post.text %>
+        </div>
+          <div class='post-menu'>
+            <span>
+              комментариев (<%= @post.comments.count %>)
+          	</span>
+            <div>
+              by <span class='user'><a href='' title='view users profile'>Дмитрий Ожигин</a></span>
+            </div>
+          </div>
+          <div class="clear">
+
+          </div>       
+          
+       <%= render "layouts/comments" %>
+
+
+        <div class="add-comment">
+          <%= form_for([@post, @post.comments.build]) do |f| %>
+            <div class="form" style="margin-left: 0px;">
+              <%= f.text_area :body, :class => "span7", :style => "resize:none" %>
+              <br>
+              <%= f.submit "Добавить комментарий", :class => "btn btn-primary" %>
+            </div>        
+          <% end %>        
+        </div>
+
+         
+    </div>
+  
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<% @posts.each do |post| %>
+
+<div id="post-69" class="row post-entry">
+  <div class='span1'>
+    <div class="post-userphoto">
+      <%= image_tag "dima.jpg", :class => "member-photo", :height => "52", :width=> "52" %>
+    </div>
+  </div>
+  <div class='span11'>
+    <div class='post-text'>
+      <div class="post-title">
+      <a href="post.html" title="link to, view, or share the full post"><%= raw post.title %></a></div>
+    <%= raw post.theme %><%= link_to ' Подробнее', post %>
+    </div>
+    <div class='post-menu'>
+      <span>     
+        <a href="" title="Просмотр комментариев" class="toggle-comments" rel="tooltip">комментариев (<%= post.comments.count %>)</a>
+      </span>
+      <div>
+        <span class='date ' title='2013-04-20 10:31:47'>Aпр 20 в 10:31</span>  
+        <span class='user'><a href='' title='view users profile'>Дмитрий Ожигин</a></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% end %>

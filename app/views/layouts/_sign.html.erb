@@ -1,0 +1,40 @@
+    <!-- Модальное окно авторизации
+    ================================================== -->
+
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Авторизация</h3>
+  </div>
+  <div class="modal-body">
+
+      <div class="control-group" align="center">
+  
+            <input class="span3" placeholder="Ваша электронная почта" type="text" name="username">
+            <br>
+            <input class="span3" placeholder="Пароль" type="password" name="password">  
+
+      </div>
+
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Отмена</button>
+    <button class="btn btn-primary">Войти</button>
+  </div>
+</div>
+
+    <!-- Регистрация или авторизация
+    ================================================== -->
+
+<div class="span3 well" style="float:right;margin-right:1%">
+    <legend>Присоединяйся к нам!</legend>
+    <form accept-charset="UTF-8" action="" method="post">
+    <input class="span3" name="name" placeholder="Имя" type="text"> 
+        <input class="span3" name="surname" placeholder="Фамилия" type="text">
+        <input class="span3" name="mail" placeholder="Электронная почта" type="text">
+        <input class="span3" name="password" placeholder="Пароль" type="password"> 
+        <button class="btn btn-warning" type="submit" style="margin-left:13%">Зарегистрироваться</button>
+      <br><br>
+        <a href="#myModal" role="button" class="btn btn-primary" style="margin-left:34.5%" data-toggle="modal">Войти</a>
+    </form>
+</div>

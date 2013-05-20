@@ -1,0 +1,31 @@
+
+<%= form_for(@post) do |f| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.text_field :title,:placeholder => "Заголовок новости" %>
+  </div>
+  <hr>
+  <div class="field">
+    <%= f.text_field :theme,:placeholder => "Тема" %>
+  </div>
+  <hr>
+  <div class="field">
+    <%= f.cktext_area :text, :ckeditor => {:uiColor => "#AADC6E", :toolbar => "full"} %>
+  </div>
+  <br>
+  <div class="actions">
+    <%= f.submit "Добавить", :class=> "btn btn-primary" %>
+    <%= link_to  "Назад", posts_path, :class=> "pull-right btn btn-danger" %>
+  </div>
+<% end %>

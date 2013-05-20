@@ -1,0 +1,63 @@
+class UsersController < ApplicationController
+	def index
+  		@user = Users.all
+  		  	if session[:user_id] != nil
+  			@current_user = Users.find(session[:user_id])
+  			if @current_user[:role] != "Admin"
+  				redirect_to :action => :show, :id => @current_user[:id]
+  			end
+  		else
+  			redirect_to :controller => :welcome
+  		end
+	end
+
+	def show
+		if session[:user_id] != nil
+			@current_user = Users.find(session[:user_id])
+			@user = @current_user
+		else 
+			redirect_to :controller => :welcome 
+		end
+	end
+
+	def edit
+		@user = Users.find(params[:id])
+
+	end
+
+	def update
+		 @user = Users.find(params[:id])
+		 @current_user = Users.find(session[:user_id])
+ 
+  			if @user.update_attributes(params[:user])
+    			if @current_user[:role] == "Admin"
+    				redirect_to :controller => :users
+    			else
+    				redirect_to :action => :show
+    			end
+  			else
+    			redirect_to :action => :show
+  			end
+	end
+
+	def destroy
+
+		@user = Users.all
+		i = 0
+		@user.each do |user|
+			if user[:role] == "Admin"
+				i = i+1
+			end
+		end
+
+		@user = Users.find(params[:id])
+		if @user[:role] == "User"  
+	  	@user.destroy
+	  	elsif @user[:role] == "Admin" && i>1
+	  	@user.destroy 
+    	end
+    	
+    	redirect_to :action => :index
+	end
+
+end

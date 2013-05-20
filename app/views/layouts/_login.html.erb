@@ -1,0 +1,21 @@
+          <ul class="nav pull-right">
+              <li class="dropdown" style="position: relative">
+                  <a class="dropdown-toggle" href="#" id="login"><b class="login"></b>Войти<b class="caret"></b></a>
+                    <div id="popup" class="hide">
+<%= form_tag sessions_path do  %>
+                            <%= text_field_tag :email, params[:email],:placeholder => "Ваша электронная почта",:style=>"width:199px;height:22px" %>
+                            <%=  password_field_tag :password_digest, params[:password_digest],:placeholder => "Введите пароль" ,:style=>"width:199px;height:22px" %>
+                            <div style="padding-bottom: 20px">
+                                <label for="remember_me" class="pull-left">
+                                <input name="remember_me" type="checkbox" tabindex="3" id="remember_me" style="margin-top: -2px" />
+                                    Запомнить
+                                </label>
+                                <%= submit_tag "Войти", :class => "pull-right btn btn-primary", :style => "margin-top: 0" %>
+                            </div>
+                            <div style="clear:both; margin:30px -18px -10px -15px; padding:5px; background-color:#ebf5fd; text-align:center">
+                                <%= link_to "Зарегистрироваться", :controller => :registration %>
+                            </div>
+<% end %>
+                    </div>
+              </li>
+            </ul>

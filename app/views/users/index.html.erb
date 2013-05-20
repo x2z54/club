@@ -1,0 +1,35 @@
+<%= javascript_include_tag "application" %>
+
+
+<%= render "layouts/nav" %>
+<%= render "layouts/panel" %>
+
+<div class="container">
+<div class="span9" style="margin-left:3%"  >
+  <div class="alert alert-info">
+    <h1>Пользователи</h1>
+  </div>
+
+<hr>
+<table class="table table-bordered table-hover">
+  <tr>
+  	<th>ID</th>
+    <th>E-mail</th>
+    <th>Права</th>
+    <th></th>
+    <th></th> 
+  </tr>
+ 
+  <% @user.each do |user| %>
+    <tr>
+      <td><%= user.id %></td>
+      <td><%= user.email  %></td>
+      <td><strong><%= user.role %></strong></td>
+      <td><%= link_to 'Редактировать', edit_user_path(user), :class => "btn btn-primary" %> </td>
+      <td><%= button_to 'Удалить', { :action => :destroy, :id => user.id }, :method => :delete, :confirm => 'Вы уверены?', :class => "btn btn-danger" %></td>
+    </tr>
+  <%end%>
+</table>
+<hr><br>
+</div>
+</div>

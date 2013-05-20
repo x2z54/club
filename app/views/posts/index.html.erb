@@ -1,0 +1,34 @@
+<%= javascript_include_tag "application.js" %>
+<%= render "layouts/nav" %>
+<%= render "layouts/panel" %>
+<div class="container">
+<div class="span12">
+<div class="alert alert-info">
+<h2>Список новостей</h2>
+</div>
+<hr>
+<table class="table table-bordered">
+  <tr>
+    <th>Имя</th>
+    <th>Тема</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @posts.each do |post| %>
+  <tr>
+    <td><%= raw post.title %></td>
+    <td><%= raw post.theme %></td>
+    <td><%= link_to 'Показать', post %></td>
+    <td><%= link_to 'Редактировать', edit_post_path(post) %></td>
+    <td><%= link_to 'Удалить', post, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Добавить новость', new_post_path,:class => "btn btn-primary" %>
+</div>
+</div>

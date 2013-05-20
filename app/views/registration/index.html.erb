@@ -1,0 +1,32 @@
+<%= render "layouts/nav" %>
+
+ <div class="container">
+
+ 	<div class='span11'>
+        <hr>
+        <div class="row">
+            <div class="span6">
+            	<%= image_tag "reg.jpg" %>
+
+            </div>
+            <div class="span3" style="margin-left:5%">
+                <h4>Зарегистрироваться</h4>
+<%= form_for :user, :url => { :action => :create } do |f| %>
+                    <hr>
+                    <%= f.text_field :name,:placeholder => "Имя" %>
+                    <br>
+                    <%= f.text_field :surname,:placeholder => "Фамилия" %>
+                    <br><br>
+                    <%= f.text_field :email,:placeholder => "Ваша электронная почта" %>
+                    <br>
+                    <%= f.password_field :password,:placeholder => "Пароль" %>
+                    <div style="float:right;margin-top:4%">
+                        <%= f.submit "Регистрация", :class => "btn btn-primary" %>
+                    </div>
+<% end %>
+            </div>
+        </div>
+        <hr>
+    </div>
+
+ </div>
