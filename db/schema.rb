@@ -39,15 +39,6 @@ ActiveRecord::Schema.define(:version => 20130519101354) do
 
   add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
 
-  create_table "mercury_images", :force => true do |t|
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
-  end
-
   create_table "posts", :force => true do |t|
     t.string   "title"
     t.text     "text"
