@@ -1,7 +1,7 @@
 class CreatePosts < ActiveRecord::Migration
   def change
     create_table :posts do |t|
-      t.title :name
+      t.string :title
       t.text :text
 
       t.timestamps
