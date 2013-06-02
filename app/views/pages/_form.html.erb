@@ -1,0 +1,18 @@
+<%= form_for(@page) do |f| %>
+
+
+  <div class="field">
+    <%= f.text_field :title %>
+  </div>
+  <hr>
+  <div class="field">
+    <%= f.cktext_area :text, :ckeditor => {:uiColor => "#AADC6E", :toolbar => "full"} %>
+  </div>
+  <br>
+  
+
+  <div class="actions">
+    <%= f.submit "Добавить", :class=> "btn btn-primary" %>
+    <%= link_to  "Назад", subcategories_path, :class=> "pull-right btn btn-danger" %>
+  </div>
+<% end %>

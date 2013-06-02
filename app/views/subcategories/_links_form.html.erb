@@ -1,0 +1,34 @@
+<table class="table table-bordered">
+    <tr>
+      <th>Название</th>
+      <th>Ссылка</th>
+      <th></th>
+    </tr>
+
+  <div class="alert alert-info">
+    <h4>Список ссылок</h4>
+  </div>
+  <% @subcategory.uploads.each do |link| %>
+    <tr>
+      <td><%= link.title %></td>
+      <td><%= link.link %></td>
+      <td><%= link_to 'Удалить', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+  </table>
+
+  <%= form_for([@subcategory, @subcategory.uploads.build]) do |f| %>
+
+    <div>
+      <p>Название</p>
+      <%= f.text_field :title %>
+    </div>
+
+    <div>
+      <p>Ссылка</p>
+      <%= f.text_field :link %>
+    </div>
+    <p>
+      <%= f.submit "Добавить ссылку", :class => "btn btn-primary" %>
+    </p>
+  <% end %>

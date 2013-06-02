@@ -1,28 +1,20 @@
 class UsersController < ApplicationController
 	def index
   		@user = Users.all
+  		@categories = Category.all
+		@subcategorys = Subcategory.all
   		  	if session[:user_id] != nil
   			@current_user = Users.find(session[:user_id])
   			if @current_user[:role] != "Admin"
-  				redirect_to :action => :show, :id => @current_user[:id]
+  				redirect_to :controller => :welcome
   			end
-  		else
-  			redirect_to :controller => :welcome
   		end
 	end
 
 	def show
-		if session[:user_id] != nil
-			@current_user = Users.find(session[:user_id])
-			@user = @current_user
-		else 
-			redirect_to :controller => :welcome 
-		end
 	end
 
 	def edit
-		@user = Users.find(params[:id])
-
 	end
 
 	def update

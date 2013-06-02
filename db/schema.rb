@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130519101354) do
+ActiveRecord::Schema.define(:version => 20130531151227) do
+
+  create_table "categories", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.text     "text"
+  end
 
   create_table "ckeditor_assets", :force => true do |t|
     t.string   "data_file_name",                  :null => false
@@ -39,13 +46,56 @@ ActiveRecord::Schema.define(:version => 20130519101354) do
 
   add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
 
+  create_table "pages", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.integer  "subcategory_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.text     "text"
+    t.integer  "category_id"
+  end
+
+  add_index "pages", ["subcategory_id"], :name => "index_pages_on_subcategory_id"
+
   create_table "posts", :force => true do |t|
     t.string   "title"
     t.text     "text"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
     t.string   "theme"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
+
+  create_table "subcategories", :force => true do |t|
+    t.string   "title"
+    t.integer  "category_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.text     "text"
+  end
+
+  create_table "subcategory_categories", :force => true do |t|
+    t.integer  "subcategory_id"
+    t.integer  "category_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  create_table "uploads", :force => true do |t|
+    t.string   "title"
+    t.string   "link"
+    t.integer  "category_id"
+    t.integer  "subcategory_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "uploads", ["category_id"], :name => "index_uploads_on_category_id"
+  add_index "uploads", ["subcategory_id"], :name => "index_uploads_on_subcategory_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"

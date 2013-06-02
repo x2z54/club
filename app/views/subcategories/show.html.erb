@@ -1,0 +1,19 @@
+<%= render "layouts/nav" %>
+<%= render "layouts/pages_subcategory" %>
+<div class="container" >
+  <div class="row">
+      <div class="span10">
+    
+        <h2 style="margin: 10px 10px 0 12px;"><%= @subcategory.title %></h2>
+        <hr>
+      </div>
+      <div class='span11'>
+        <div class='post-text'>
+          	<%=raw @subcategory.text %>
+        </div>
+             
+    </div>
+  
+
+  </div>
+</div>

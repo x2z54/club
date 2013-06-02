@@ -13,55 +13,24 @@
           <li><%= link_to "Главная", root_path %><i class="icon_home"></i>  </li>
           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">О нас <b class="caret"></b></a>
-            <ul class="dropdown-menu" id="swatch-menu">
-              <li><a href="">План работы</a></li>
-              <li><a href="">История центра</a></li>
-              <li><a href="">Контакты</a></li>
-              <li><a href="gallery.html">Фотографии</a></li>
-            </ul>
-          </li>          
-          <li class="dropdown" id="preview-menu">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Туризм <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li><a target="_blank" href="">Пеший туризм</a></li>
-              <li><a target="_blank" href="">Водный туризм</a></li>
-            </ul>
+              <ul class="dropdown-menu" id="swatch-menu">
+                <li><a href="">План работы</a></li>
+                <li><a href="">История центра</a></li>
+                <li><a href="">Контакты</a></li>
+              </ul>
           </li>
-          <li class="dropdown" id="preview-menu">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Слеты и соревнования <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li><a target="_blank" href="">Проводы зимы</a></li>
-              <li><a target="_blank" href="">Весенний марафон</a></li>
-              <li><a target="_blank" href="">Осенний марафон</a></li>
-              <li><a target="_blank" href="">Зимние старты</a></li>
-              <li><a target="_blank" href="">Заколдованный лес</a></li>               
-            </ul>
-          </li>
-          <li class="dropdown" id="preview-menu">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Мкк <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li><a target="_blank" href="">Состав и полномочия</a></li>
-              <li><a target="_blank" href="">Выездные мероприятия</a></li>
-              <li><a target="_blank" href="">Инструкция</a></li>
-              <li><a target="_blank" href="">Правила проведения походов</a></li>             
-            </ul>
-          </li>
-          <li class="dropdown" id="preview-menu">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Другие направления <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li><a target="_blank" href="">Танцы</a></li>
-              <li><a target="_blank" href="">Английский язык</a></li>
-              <li><a target="_blank" href="">Студия капелька</a></li>           
-            </ul>
-          </li>
-          <li><a id="swatch-link" href="">Экскурсии</a></li>
-          <li><a id="swatch-link" href="">Отчеты</a></li>               
+          <%@categories.each do |category|%>
+            <%= if category.subcategory.count > 0 
+                render "layouts/drop", :category => category
+              else
+                render "layouts/li", :category => category
+                end %>
+          <% end %>     
+
+          <li><a id="swatch-link" href="">Фотографии</a></li>    
         </ul>
-          <%= if session[:user_id] == nil 
-                 render "layouts/login"
-              elsif @current_user[:role] == "Admin"
+          <%= if @current_user and @current_user[:role] == "Admin"
                 render "layouts/adm"
-              else render "layouts/user"
           end %>
        </div>
      </div>

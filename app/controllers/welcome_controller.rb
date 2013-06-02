@@ -1,8 +1,10 @@
 class WelcomeController < ApplicationController
+
+	before_filter :init_user
+
 	def index
 		@posts = Post.all
-		 if session[:user_id] != nil
-		 @current_user = Users.find(session[:user_id])
-		end
+		@categories = Category.all
+		@subcategorys = Subcategory.all
 	end
 end

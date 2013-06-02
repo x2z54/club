@@ -1,8 +1,4 @@
 <%= render "layouts/nav" %>
-  <%= javascript_include_tag "application.js" %>
-<script type="text/javascript">
-var CKEDITOR_BASEPATH = '/assets/ckeditor/';
-</script>
 <div class="container" >
   <div class="row">
       <div class="span10">
@@ -13,30 +9,7 @@ var CKEDITOR_BASEPATH = '/assets/ckeditor/';
         <div class='post-text'>
           	<%= raw @post.text %>
         </div>
-          <div class='post-menu'>
-            <span>
-              комментариев (<%= @post.comments.count %>)
-          	</span>
-            <div>
-              by <span class='user'><a href='' title='view users profile'>Дмитрий Ожигин</a></span>
-            </div>
-          </div>
-          <div class="clear">
-
-          </div>       
-          
-       <%= render "layouts/comments" %>
-
-
-        <div class="add-comment">
-          <%= form_for([@post, @post.comments.build]) do |f| %>
-            <div class="form" style="margin-left: 0px;">
-              <%= f.text_area :body, :class => "span7", :style => "resize:none" %>
-              <br>
-              <%= f.submit "Добавить комментарий", :class => "btn btn-primary" %>
-            </div>        
-          <% end %>        
-        </div>
+  <hr>       
 
          
     </div>

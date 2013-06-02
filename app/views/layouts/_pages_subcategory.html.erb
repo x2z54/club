@@ -1,0 +1,17 @@
+        <div class="span3" style="width:15%;margin-top:1%;">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li><%= link_to @subcategory.title, @subcategory %></li>
+              <% if @subcategory.pages %>
+              <hr>
+              <%@subcategory.pages.each do |page|%>
+              <li><%= link_to page.title, @subcategory.pages %></a></li>
+              <% end %>
+              <% end %>
+              <li class="nav-header">Список файлов</li>
+              <% @subcategory.uploads.each do |upload| %>
+              <a href="<%= upload.link %>"><%= upload.title %></a>
+              <% end %>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span-->

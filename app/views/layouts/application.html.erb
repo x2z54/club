@@ -6,21 +6,8 @@
   <%= stylesheet_link_tag    "bootstrap.css" %>
   <%= stylesheet_link_tag    "style.css" %>
   <%= stylesheet_link_tag    "popup.css" %>
-
+  <%= csrf_meta_tag %>
  
-          <style>
-            .login {
-                width: 16px;
-                height: 16px;
-                background: url("../images/login.png") no-repeat;
-                display: inline-block;
-                margin-top: 1px;
-                padding-right: 5px;
-                *margin-right: .3em;
-                line-height: 14px;
-                vertical-align: text-top;
-            }
-        </style>
 </head>
 <body class="preview" id="top" data-spy="scroll" data-target=".subnav" data-offset="80">
 
@@ -31,18 +18,7 @@
   <%= javascript_include_tag "jquery.min.js" %>
   <%= javascript_include_tag "bootstrap.min.js" %>
   <%= javascript_include_tag "bootswatch.js" %>
-  <%= javascript_include_tag "jquery.popup.js" %>
 
 
-        <script>
-            $(function (){
-                $('#login').popupWin({
-                    width      : '210px',
-                    popWin     : '#popup',
-                    edgeOffset : 55,
-                    left_right : {'right' : '-10px'}
-                });
-            });
-        </script>
 </body>
 </html>

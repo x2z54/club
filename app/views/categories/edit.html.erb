@@ -1,0 +1,35 @@
+  <%= javascript_include_tag "application.js" %>
+  <%= javascript_include_tag "ckeditor/init.js" %>
+  <%= javascript_include_tag "ckeditor/styles.js" %>
+  <%= javascript_include_tag "ckeditor/ckeditor.js" %>
+  <%= javascript_include_tag "ckeditor/config.js" %>
+
+<%= render "layouts/panel" %>
+<div class="container">
+  <div class="span11">
+    <div class="bs-docs-example">
+      <ul id="myTab" class="nav nav-tabs">
+        <li class="active"><a href="#category" data-toggle="tab">Категория</a></li>
+        <li><a href="#subcategory" data-toggle="tab">Подкатегории</a></li>
+        <li><a href="#pages" data-toggle="tab">Страницы</a></li>
+        <li><a href="#links" data-toggle="tab">Ссылки</a></li>
+      </ul>
+
+      <div id="myTabContent" class="tab-content">
+        <div class="tab-pane fade in active" id="category">
+          <%= render 'form' %>
+        </div>
+        <div class="tab-pane fade" id="subcategory">              
+          <%= render "subcategory_form" %>
+        </div>
+        <div class="tab-pane fade" id="pages">
+          <%= render "pages_form" %>
+        </div>
+        <div class="tab-pane fade" id="links">
+          <%= render "links_form" %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

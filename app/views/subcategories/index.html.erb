@@ -1,0 +1,31 @@
+<%= render "layouts/panel" %>
+<div class="container">
+<div class="span11">
+<div class="alert alert-info">
+<h2>Список подкатегорий</h2>
+</div>
+<hr>
+<table class="table table-bordered">
+  <tr>
+    <th>Название</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @subcategorys.each do |subcategory| %>
+  <tr>
+    <td><%= subcategory.title %></td>
+    <td><%= link_to 'Показать', subcategory %></td>
+    <td><%= link_to 'Редактировать', edit_subcategory_path(subcategory) %></td>
+    <td><%= link_to 'Удалить', subcategory, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+
+</div>
+</div>
+<%= javascript_include_tag "application.js" %>

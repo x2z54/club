@@ -1,0 +1,8 @@
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><%= category.title %><b class="caret"></b></a>
+            <ul class="dropdown-menu" id="swatch-menu">
+              <% category.subcategory.each do |sub|%>
+              <li><%= link_to sub.title, sub %></a></li>
+              <% end %>
+            </ul>
+          </li> 

@@ -1,0 +1,23 @@
+<%= render "layouts/nav" %>
+<%= if @subcategory = Page.find(params[:id]).subcategory
+render "layouts/pages_subcategory"
+else
+render "layouts/pages_category"
+end %>
+<div class="container" >
+  <div class="row">
+      <div class="span10">
+    
+        <h2 style="margin: 10px 10px 0 12px;"><%= @page.title %></h2>
+        <hr>
+      </div>
+      <div class='span11'>
+        <div class='post-text'>
+          	<%=raw @page.text %>
+        </div>
+             
+    </div>
+  
+
+  </div>
+</div>

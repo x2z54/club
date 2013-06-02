@@ -1,11 +1,10 @@
 class PostsController < ApplicationController
-  # GET /posts
-  # GET /posts.json
+before_filter :init_user, :only => [:show,:index,:edit]
+
   def index
     @posts = Post.all
-    if session[:user_id] != nil
-    @current_user = Users.find(session[:user_id])
-    end
+    @categories = Category.all
+    @subcategorys = Subcategory.all
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @posts }
@@ -15,10 +14,9 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @categories = Category.all
+    @subcategorys = Subcategory.all
     @post = Post.find(params[:id])
-    if session[:user_id] != nil
-      @current_user = Users.find(session[:user_id])
-    end
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @post }
@@ -29,9 +27,6 @@ class PostsController < ApplicationController
   # GET /posts/new.json
   def new
     @post = Post.new
-        if session[:user_id] != nil
-    @current_user = Users.find(session[:user_id])
-  end
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @post }
@@ -40,7 +35,6 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
-    @current_user = Users.find(session[:user_id])
     @post = Post.find(params[:id])
   end
 
