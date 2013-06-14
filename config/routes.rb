@@ -28,7 +28,6 @@ Turclub::Application.routes.draw do
 
 
   resources :ckeditor
-  resources :registration
   resources :users
   resources :sessions
   resources :admin

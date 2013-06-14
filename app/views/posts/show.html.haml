@@ -1,0 +1,10 @@
+= render "layouts/nav"
+.container
+  .row
+    .span10
+      %h2{:style => "margin: 10px 10px 0 12px;"}= raw @post.title
+      %hr
+        .span11
+          .post-text
+            = raw @post.text
+          %hr

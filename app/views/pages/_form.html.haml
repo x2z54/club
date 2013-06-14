@@ -1,0 +1,10 @@
+= form_for(@page) do |f|
+  .field
+    = f.text_field :title
+  %hr
+    .field
+      = f.cktext_area :text, :ckeditor => {:uiColor => "#AADC6E", :toolbar => "full"}
+    %br
+      .actions
+        = f.submit "Добавить", :class=> "btn btn-primary"
+        = link_to  "Назад", subcategories_path, :class=> "pull-right btn btn-danger"

@@ -1,0 +1,14 @@
+.comments
+  - @post.comments.each do |comment|
+    .entry.clearfix
+      %a{:href => "/users/1/kuba"}
+        %img.member-photo{:alt => "Click to view user profile", :height => "32", :src => "http://www.windsorultimate.com/files/user_kuba_bc88910ba4e3c242df4c90c4194b9ed0.jpg", :title => "Click to view user profile", :width => "32"}/
+      .text
+        %span.user.bold= link_to comment.commenter, :controller => :users, :action => :show, :id => 1
+        = comment.body
+        = if @current_user and @current_user[:role] == "Admin"                                                |
+          link_to image_tag('delete-icon.png'), [@post, comment], :method => :delete, :style => "float:right" |
+          else                                                                                                |
+          end                                                                                                 |
+      .details
+        %span.date{:title => "2013-05-09 09:46:53"} May 09 at 09:46AM

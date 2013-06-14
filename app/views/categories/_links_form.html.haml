@@ -1,0 +1,21 @@
+%table.table.table-bordered
+  %tr
+    %th Название
+    %th Ссылка
+    %th
+  .alert.alert-info
+    %h4 Список ссылок
+  - @category.uploads.each do |link|
+    %tr
+      %td= link.title
+      %td= link.link
+      %td= link_to 'Удалить', link, method: :delete, data: { confirm: 'Are you sure?' }
+= form_for ([@category,@category.uploads.build]),  :url => {:controller => :uploads, :action => "create_category_link", :id => @category.id} do |f|
+  %div
+    %p Название
+    = f.text_field :title
+  %div
+    %p Ссылка
+    = f.text_field :link
+  %p
+    = f.submit "Добавить ссылку", :class => "btn btn-primary"

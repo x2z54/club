@@ -1,0 +1,8 @@
+%li.dropdown
+  %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+    = category.title
+    %b.caret
+  %ul#swatch-menu.dropdown-menu
+    - category.subcategory.each do |sub|
+      %li
+        = link_to sub.title, sub

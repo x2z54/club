@@ -1,0 +1,23 @@
+= render "layouts/panel"
+.container
+  .span11
+    .alert.alert-info
+      %h2 Список новостей
+    %hr
+      %table.table.table-bordered
+        %tr
+          %th Имя
+          %th Тема
+          %th
+          %th
+          %th
+        - @posts.each do |post|
+          %tr
+            %td= raw post.title
+            %td= raw post.theme
+            %td= link_to 'Показать', post
+            %td= link_to 'Редактировать', edit_post_path(post)
+            %td= link_to 'Удалить', post, method: :delete, data: { confirm: 'Вы уверены?' }
+      %br/
+      = link_to 'Добавить новость', new_post_path,:class => "btn btn-primary"
+= javascript_include_tag "application.js"

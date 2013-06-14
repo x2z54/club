@@ -1,0 +1,25 @@
+= render "layouts/panel"
+.container
+  .span9{:style => "margin-left:3%"}
+    .alert.alert-info
+      %h1 Пользователи
+    %hr
+      %table.table.table-bordered.table-hover
+        %tr
+          %th ID
+          %th E-mail
+          %th Права
+          %th
+          %th
+        - @user.each do |user|
+          %tr
+            %td= user.id
+            %td= user.email
+            %td
+              %strong= user.role
+            %td
+              = link_to 'Редактировать', edit_user_path(user), :class => "btn btn-primary"
+            %td= button_to 'Удалить', { :action => :destroy, :id => user.id }, :method => :delete, :confirm => 'Вы уверены?', :class => "btn btn-danger"
+      %hr
+        %br
+= javascript_include_tag "application.js"

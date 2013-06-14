@@ -1,0 +1,21 @@
+= render "layouts/panel"
+.container
+  .span7{:style => "margin-right:13%;margin-left:5%"}
+    .alert.alert-info
+      %h1 Панель управления сайтом
+      %strong
+        %p Здесь Вы можете добавлять новости и просматривать статистику сайта
+    %hr
+      %h3 Статистика:
+      %h5 Всего:
+      %table.table.table-bordered.table-hover
+        %tr
+          %th Новостей
+          %th Пользователей
+        %td= @posts.size
+        %td= @users.size
+      %hr
+        .span7{:style => "margin-right:13%;margin-left:5%"}
+          %p
+            По всем вопросам касательно работы сайта Вы можете обратиться на почту
+            %a{:href => "mailto:#"} flashbulb54@gmail.com

@@ -3,8 +3,7 @@ class UploadsController < ApplicationController
 
 	def new
     	@upload = Upload.new
-
-    end
+  end
 
 	def create
 		@subcategory = Subcategory.find(params[:subcategory_id])

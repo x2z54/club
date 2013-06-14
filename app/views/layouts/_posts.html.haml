@@ -1,0 +1,13 @@
+- @posts.each do |post|
+  #post-69.row.post-entry
+    .span1
+      .post-userphoto
+        = image_tag post.photo.url , :class => "member-photo", :height => "52", :width=> "52"
+    .span11
+      .post-text
+        .post-title
+          %a{:href => "post.html", :title => "link to, view, or share the full post"}= raw post.title
+        = raw post.theme
+        = link_to ' Подробнее', post
+      %span.date.pull-right{:title => "2013-04-20 10:31:47"}= raw post.created_at.to_s(:ru_datetime)
+      %hr

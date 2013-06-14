@@ -46,7 +46,7 @@ Turclub::Application.configure do
   # config.action_controller.asset_host = "http://assets.example.com"
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-  config.assets.precompile += [ "bootswatch.css","bootstrap.css", "popup.css", "style.css", "bootswatch.js", "bootstrap.min.js", "main.js", "jquery.min.js", "jquery.popup.js","ckeditor/*" ]
+  config.assets.precompile += [ "bootswatch.css","bootstrap.css", "popup.css", "style.css", "bootswatch.js", "bootstrap.min.js", "main.js", "jquery.min.js",  "ckeditor/*" ]
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false

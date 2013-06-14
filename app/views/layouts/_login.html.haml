@@ -1,0 +1,17 @@
+%ul.nav.pull-right
+  %li.dropdown{:style => "position: relative"}
+    %a#login.dropdown-toggle{:href => "#"}
+      %b.login>
+      Войти
+      %b.caret
+    #popup.hide
+      = form_tag sessions_path do
+        = text_field_tag :email, params[:email],:placeholder => "Ваша электронная почта",:style=>"width:199px;height:22px"
+        = password_field_tag :password_digest, params[:password_digest],:placeholder => "Введите пароль" ,:style=>"width:199px;height:22px"
+        %div{:style => "padding-bottom: 20px"}
+          %label.pull-left{:for => "remember_me"}
+            %input#remember_me{:name => "remember_me", :style => "margin-top: -2px", :tabindex => "3", :type => "checkbox"}/
+            Запомнить
+          = submit_tag "Войти", :class => "pull-right btn btn-primary", :style => "margin-top: 0"
+        %div{:style => "clear:both; margin:30px -18px -10px -15px; padding:5px; background-color:#ebf5fd; text-align:center"}
+          = link_to "Зарегистрироваться", :controller => :registration

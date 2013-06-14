@@ -1,0 +1,10 @@
+= render "layouts/nav"
+= render "layouts/pages_subcategory"
+.container
+  .row
+    .span10
+      %h2{:style => "margin: 10px 10px 0 12px;"}= @subcategory.title
+      %hr
+    .span11
+      .post-text
+        = raw @subcategory.text

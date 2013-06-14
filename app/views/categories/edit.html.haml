@@ -1,0 +1,27 @@
+= javascript_include_tag "application.js"
+= javascript_include_tag "ckeditor/init.js"
+= javascript_include_tag "ckeditor/styles.js"
+= javascript_include_tag "ckeditor/ckeditor.js"
+= javascript_include_tag "ckeditor/config.js"
+= render "layouts/panel"
+.container
+  .span11
+    .bs-docs-example
+      %ul#myTab.nav.nav-tabs
+        %li.active
+          %a{"data-toggle" => "tab", :href => "#category"} Категория
+        %li
+          %a{"data-toggle" => "tab", :href => "#subcategory"} Подкатегории
+        %li
+          %a{"data-toggle" => "tab", :href => "#pages"} Страницы
+        %li
+          %a{"data-toggle" => "tab", :href => "#links"} Ссылки
+      #myTabContent.tab-content
+        #category.tab-pane.fade.in.active
+          = render 'form'
+        #subcategory.tab-pane.fade
+          = render "subcategory_form"
+        #pages.tab-pane.fade
+          = render "pages_form"
+        #links.tab-pane.fade
+          = render "links_form"

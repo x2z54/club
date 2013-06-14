@@ -1,0 +1,13 @@
+.span3{:style => "width:15%"}
+  .well.sidebar-nav
+    %ul.nav.nav-list
+      %li.nav-header Панель управления
+      %li= link_to "Главная", :controller => :admin
+      %li= link_to "Пользователи", users_path
+      %li= link_to "Новости", posts_path
+      %li= link_to "Категории", categories_path
+      %li= link_to "Подкатегории", subcategories_path
+      %hr
+        %li= link_to "На сайт", root_path
+        %hr
+          %li= link_to "Выйти", log_out_path

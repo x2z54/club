@@ -15,8 +15,7 @@ class SessionsController < ApplicationController
 	session[:user_id] = user.id
 	redirect_to :controller => :welcome
 	else
-    raise ActionController::RoutingError.new('Not Found')
-    #redirect_to :controller => :welcome
+    redirect_to :controller => :welcome
   	end
   end
 end

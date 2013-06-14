@@ -1,0 +1,19 @@
+%table.table.table-bordered
+  %tr
+    %th Название
+    %th
+    %th
+    %th
+  .alert.alert-info
+    %h4 Список подкатегорий
+  - @category.subcategory.each do |subcategory|
+    %tr
+      %td= subcategory.title
+      %td= link_to 'Показать', subcategory
+      %td= link_to 'Редактировать', edit_subcategory_path(subcategory)
+      %td= link_to 'Удалить', subcategory, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= form_for([@category, @category.subcategory.build]) do |f|
+  = f.text_field :title
+  %p
+    = f.submit "Добавить подкатегорию", :class => "btn btn-primary"

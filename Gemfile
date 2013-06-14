@@ -11,6 +11,7 @@ gem 'capistrano'
 gem 'unicorn'
 gem 'execjs'
 gem 'therubyracer'
+gem 'haml'
 
 # Gems used only for assets and not required
 # in production environments by default.
